@@ -6,8 +6,10 @@ import router from './router'
 import 'lib-flexible/flexible' // 移动端适配
 
 import VueLazyload from 'vue-lazyload' // 懒加载
-import VueAwesomeSwiper from 'vue-awesome-swiper'
+import VueAwesomeSwiper from 'vue-awesome-swiper' // 轮播图
 import 'swiper/dist/css/swiper.css'
+// import FastClick from 'fastclick' // 300ms延迟
+// FastClick.attach(document.bbody)
 
 Vue.use(VueAwesomeSwiper /* { default global options } */) // 执行插件里面的安装方法
 Vue.use(VueLazyload, {
@@ -15,6 +17,14 @@ Vue.use(VueLazyload, {
   error: 'static/error.png',
   loading: 'static/loading.gif',
   attempt: 1
+})
+// 全局前置守卫
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+
+  // 标题title
+  document.title = '蘑菇街'
+  next()
 })
 
 Vue.config.productionTip = false
