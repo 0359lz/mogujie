@@ -11,4 +11,16 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-// 分类
+// 商城
+export function getCont () {
+  return axios.get('shopContent')
+}
+export function getShopcate () {
+  return axios.get('shopCate')
+}
+export function getShopPopu () {
+  return axios.get('shopPopu')
+}
+export function getShopPoEnt () {
+  return axios.get('shopPoEnt')
+}
