@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     home
-    {{list}}
+
   </div>
 </template>
 <script>
