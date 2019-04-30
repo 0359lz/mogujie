@@ -12,6 +12,3 @@ axios.interceptors.response.use(function (response) {
 })
 
 // 分类
-export function getCate () {
-  return axios.get('cate')
-}

@@ -5,6 +5,7 @@ import shop from '@/components/shop/shop.vue'
 import live from '@/components/live/live.vue'
 import category from '@/components/category/category.vue'
 import my from '@/components/my/my.vue'
+import bus from '@/components/category/bus.vue'
 
 Vue.use(Router)
 
@@ -28,7 +29,12 @@ export default new Router({
     },
     {
       path: '/category',
-      component: category
+      component: category,
+      children: [
+        { path: 'bus',
+          component: bus
+        }
+      ]
     },
     {
       path: '/my',
