@@ -1,19 +1,31 @@
 <template>
   <div class="home">
-    home
-    {{list}}
+    <!-- 搜索框 -->
+    <hrearch></hrearch>
+    <!-- 轮播图 -->
+    <carousel></carousel>
+    <!-- 衣服分类 -->
+    <hcate></hcate>
   </div>
 </template>
 <script>
-import {getCate} from '@/api'
+import hrearch from './components/hrearch.vue'
+import carousel from './components/carousel'
+import hcate from './components/hcate'
 export default {
+  components: {
+    hrearch,
+    carousel,
+    hcate
+  },
   data () {
     return {
-      list: null
+
     }
-  },
-  async mounted () {
-    this.list = await getCate()
   }
+
 }
 </script>
+<style scoped>
+
+</style>
