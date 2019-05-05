@@ -11,7 +11,11 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-// 分类
-export function getCate () {
-  return axios.get('cate')
+// home find  发现
+export function getFind () {
+  return axios.get('home/find')
+}
+// home popular  发现
+export function getPopular () {
+  return axios.get('home/popular')
 }

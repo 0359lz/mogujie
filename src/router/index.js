@@ -14,7 +14,21 @@ export default new Router({
       component: () => import('@/components/home/home.vue'),
       meta: {
         catch: true
-      }
+      },
+      children: [
+        {
+          path: 'find',
+          component: () => import('@/components/home/components/find.vue')
+        },
+        {
+          path: 'watch',
+          component: () => import('@/components/home/components/watch.vue')
+        },
+        {
+          path: 'popular',
+          component: () => import('@/components/home/components/popular.vue')
+        }
+      ]
     },
     {
       path: '/shop',
@@ -43,6 +57,11 @@ export default new Router({
       meta: {
         catch: false
       }
+    },
+    {
+      path: '*',
+      redirect: '/home'
     }
+
   ]
 })
