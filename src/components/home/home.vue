@@ -12,22 +12,15 @@
   </div>
 </template>
 <script>
-<<<<<<< HEAD
-=======
 import cnav from './components/cnav.vue'
 import loading from '@/common/loading.vue'
 import hrearch from './components/hrearch.vue'
 import carousel from './components/carousel.vue'
 import hcate from './components/hcate'
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
 
 export default {
   data () {
     return {
-<<<<<<< HEAD
-
-    }
-=======
       isShowLoading: true
     }
   },
@@ -40,7 +33,6 @@ export default {
   },
   mounted () {
     this.isShowLoading = false
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
   }
 
 }

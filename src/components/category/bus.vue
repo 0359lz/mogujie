@@ -1,7 +1,7 @@
 <template>
   <div class="bus">
     <div class="header">
-      <img src="./images/1.png" alt>
+      <img src="./images/1.png" alt @click='back'>
       <span>购物车</span>
       <div class="header1">
         <img src="./images/2.png" alt>
@@ -43,6 +43,13 @@
   </div>
 </template>
 <script>
+export default {
+  methods: {
+    back () {
+      this.$router.go(-1)
+    }
+  }
+}
 </script>
 <style scoped lang='less'>
 .bus {

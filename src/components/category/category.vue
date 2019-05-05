@@ -1,20 +1,14 @@
 <template>
 <div class="box">
   <!-- search -->
-  <div class="cate">
-<<<<<<< HEAD
+ <div v-show="isShow">
+  <div class="cate" >
     <img class="pic1" src="@/assets/category/information.jpg" alt="">
      <div>
        <img class="pic2" src="@/assets/category/search.png" alt="">
        <input type="text" placeholder="阔腿裤">
      </div>
-     <img class="pic3" src="@/assets/category/shopcar.jpg" alt="">
-=======
-    <div v-show="isShow">
-      <router-link to="/category/bus" tag="li">分类</router-link>
-    </div>
-    <router-view></router-view>
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
+    <router-link to="/category/bus"><img class="pic3" src="@/assets/category/shopcar.jpg" alt=""></router-link>
   </div>
   <!-- content -->
   <div class="content">
@@ -57,13 +51,14 @@
       </div>
     </div>
   </div>
+ </div>
+<router-view></router-view>
 </div>
 </template>
-<<<<<<< HEAD
 
 <script>
 import BScroll from 'better-scroll'
-import {getCateList, getCate, getWall} from '@/api'
+import {getCateList, getCate1, getWall} from '@/api'
 import { setInterval } from 'timers'
 export default {
   data () {
@@ -73,12 +68,13 @@ export default {
       timer: null,
       liHeight: 90,
       cate: [],
-      wall: null
+      wall: null,
+      isShow: true
     }
   },
   async created () {
     this.cateList = await getCateList()
-    this.cate = await getCate()
+    this.cate = await getCate1()
     this.wall = await getWall()
     this.$nextTick(() => {
       var height = 45 * this.cateList.length
@@ -88,6 +84,16 @@ export default {
     // 增加滚动视图
     /* eslint-disable no-new */
     new BScroll('.wrapper')
+  },
+  // 监听路径
+  watch: {
+    $route (now, old) {
+      if (now.path !== '/category') {
+        this.isShow = false
+      } else if (now.path === '/category') {
+        this.isShow = true
+      }
+    }
   },
   methods: {
     changeStatus (index) {
@@ -109,27 +115,11 @@ export default {
         }
         this.$refs.lc.scrollTop = header
       }, 10)
-=======
-<script>
-export default {
-  data () {
-    return {
-      isShow: true
-    }
-  },
-  // 监听路径
-  watch: {
-    $route (now, old) {
-      if (now.path !== '/category') {
-        this.isShow = false
-      }
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
     }
   }
 }
 </script>
 
-<<<<<<< HEAD
 <style scoped lang="less">
 //  search样式
   .box{
@@ -336,10 +326,5 @@ export default {
       }
     }
   }
-=======
-<style scoped>
-.cate{
-  height: 100%;
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
 }
 </style>

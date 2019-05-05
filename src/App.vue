@@ -27,11 +27,6 @@ export default {
 </script>
 
 <style>
-<<<<<<< HEAD
-#app{
-   width: 100%;
-   height:100%;
-=======
 #app {
   height: 100%;
 }
@@ -43,6 +38,5 @@ span.swiper-pagination-bullet{
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
 }
 </style>

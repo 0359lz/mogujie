@@ -11,13 +11,12 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-<<<<<<< HEAD
 export function getCateList () {
   return axios.get('catelist')
 }
 
-export function getCate () {
-  return axios.get('cate')
+export function getCate1 () {
+  return axios.get('cate1')
 }
 
 export function getWall () {
@@ -29,7 +28,6 @@ export function getCateDetail () {
 }
 
 // 分类
-=======
 // 首页
 export function getCate () {
   return axios.get('cate')
@@ -56,4 +54,3 @@ export function getShopPopu () {
 export function getShopPoEnt () {
   return axios.get('shopPoEnt')
 }
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3

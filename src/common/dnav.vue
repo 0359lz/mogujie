@@ -19,12 +19,8 @@
       width: 100%;
       height: 100px;
       border-top: 2px solid rgb(226, 226, 226);
-<<<<<<< HEAD
-      background: #fff;
-=======
       background: white;
       z-index: 888;
->>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
       li{
         flex: 1;
         text-align: center;
