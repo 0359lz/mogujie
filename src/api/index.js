@@ -10,7 +10,10 @@ axios.interceptors.response.use(function (response) {
   // Do something with response error
   return Promise.reject(error)
 })
-
+// 首页
+export function getCate () {
+  return axios.get('cate')
+}
 // 商城
 export function getCont () {
   return axios.get('shopContent')
