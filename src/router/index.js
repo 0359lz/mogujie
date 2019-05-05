@@ -66,9 +66,21 @@ export default new Router({
       }
     },
     {
-      path: '*',
-      redirect: '/home'
+      path: '/my/qq',
+      component: () => import('@/components/my/qq.vue')
+    },
+    {
+      path: '/my/ml',
+      component: () => import('@/components/my/ml.vue')
+    },
+    {
+      path: '/my/zh',
+      component: () => import('@/components/my/zh.vue')
     }
+    // {
+    //   path: '*',
+    //   redirect: '/home'
+    // }
 
   ]
 })
