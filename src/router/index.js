@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import bus from '@/components/category/bus.vue'
 
 Vue.use(Router)
 
@@ -47,6 +48,12 @@ export default new Router({
     {
       path: '/category',
       component: () => import('@/components/category/category.vue'),
+      children: [
+        {
+          path: 'bus',
+          component: bus
+        }
+      ],
       meta: {
         catch: false
       }

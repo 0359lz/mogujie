@@ -20,6 +20,7 @@
       height: 100px;
       border-top: 2px solid rgb(226, 226, 226);
       background: white;
+      z-index: 888;
       li{
         flex: 1;
         text-align: center;
