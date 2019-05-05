@@ -10,7 +10,17 @@ axios.interceptors.response.use(function (response) {
   // Do something with response error
   return Promise.reject(error)
 })
-// 分类
-export function getCate () {
-  return axios.get('cate')
+
+// 商城
+export function getCont () {
+  return axios.get('shopContent')
+}
+export function getShopcate () {
+  return axios.get('shopCate')
+}
+export function getShopPopu () {
+  return axios.get('shopPopu')
+}
+export function getShopPoEnt () {
+  return axios.get('shopPoEnt')
 }
