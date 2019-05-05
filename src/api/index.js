@@ -11,7 +11,20 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-// 分类
+export function getCateList () {
+  return axios.get('catelist')
+}
+
 export function getCate () {
   return axios.get('cate')
 }
+
+export function getWall () {
+  return axios.get('wall')
+}
+
+export function getCateDetail () {
+  return axios.get('catedetail')
+}
+
+// 分类
