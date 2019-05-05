@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/components/home/home.vue'
-import shop from '@/components/shop/shop.vue'
-import live from '@/components/live/live.vue'
-import category from '@/components/category/category.vue'
-import my from '@/components/my/my.vue'
+import bus from '@/components/category/bus.vue'
 
 Vue.use(Router)
 
@@ -16,23 +12,75 @@ export default new Router({
     },
     {
       path: '/home',
-      component: home
+      component: () => import('@/components/home/home.vue'),
+      meta: {
+        catch: true
+      },
+      children: [
+        {
+          path: 'find',
+          component: () => import('@/components/home/components/find.vue')
+        },
+        {
+          path: 'watch',
+          component: () => import('@/components/home/components/watch.vue')
+        },
+        {
+          path: 'popular',
+          component: () => import('@/components/home/components/popular.vue')
+        }
+      ]
     },
     {
       path: '/shop',
-      component: shop
+      component: () => import('@/components/shop/shop.vue'),
+      meta: {
+        catch: false
+      }
     },
     {
       path: '/live',
-      component: live
+      component: () => import('@/components/live/live.vue'),
+      meta: {
+        catch: false
+      }
     },
     {
       path: '/category',
-      component: category
+      component: () => import('@/components/category/category.vue'),
+      children: [
+        {
+          path: 'bus',
+          component: bus
+        }
+      ],
+      meta: {
+        catch: false
+      }
     },
     {
       path: '/my',
-      component: my
+      component: () => import('@/components/my/my.vue'),
+      meta: {
+        catch: false
+      }
+    },
+    {
+      path: '/my/qq',
+      component: () => import('@/components/my/qq.vue')
+    },
+    {
+      path: '/my/ml',
+      component: () => import('@/components/my/ml.vue')
+    },
+    {
+      path: '/my/zh',
+      component: () => import('@/components/my/zh.vue')
     }
+    // {
+    //   path: '*',
+    //   redirect: '/home'
+    // }
+
   ]
 })

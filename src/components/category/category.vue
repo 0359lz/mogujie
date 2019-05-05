@@ -2,12 +2,19 @@
 <div class="box">
   <!-- search -->
   <div class="cate">
+<<<<<<< HEAD
     <img class="pic1" src="@/assets/category/information.jpg" alt="">
      <div>
        <img class="pic2" src="@/assets/category/search.png" alt="">
        <input type="text" placeholder="阔腿裤">
      </div>
      <img class="pic3" src="@/assets/category/shopcar.jpg" alt="">
+=======
+    <div v-show="isShow">
+      <router-link to="/category/bus" tag="li">分类</router-link>
+    </div>
+    <router-view></router-view>
+>>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
   </div>
   <!-- content -->
   <div class="content">
@@ -52,6 +59,7 @@
   </div>
 </div>
 </template>
+<<<<<<< HEAD
 
 <script>
 import BScroll from 'better-scroll'
@@ -101,11 +109,27 @@ export default {
         }
         this.$refs.lc.scrollTop = header
       }, 10)
+=======
+<script>
+export default {
+  data () {
+    return {
+      isShow: true
+    }
+  },
+  // 监听路径
+  watch: {
+    $route (now, old) {
+      if (now.path !== '/category') {
+        this.isShow = false
+      }
+>>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
     }
   }
 }
 </script>
 
+<<<<<<< HEAD
 <style scoped lang="less">
 //  search样式
   .box{
@@ -312,5 +336,10 @@ export default {
       }
     }
   }
+=======
+<style scoped>
+.cate{
+  height: 100%;
+>>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
 }
 </style>

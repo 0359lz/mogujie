@@ -11,6 +11,7 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
+<<<<<<< HEAD
 export function getCateList () {
   return axios.get('catelist')
 }
@@ -28,3 +29,31 @@ export function getCateDetail () {
 }
 
 // 分类
+=======
+// 首页
+export function getCate () {
+  return axios.get('cate')
+}
+// home find  发现
+export function getFind () {
+  return axios.get('home/find')
+}
+// home popular  发现
+export function getPopular () {
+  return axios.get('home/popular')
+}
+
+// 商城
+export function getCont () {
+  return axios.get('shopContent')
+}
+export function getShopcate () {
+  return axios.get('shopCate')
+}
+export function getShopPopu () {
+  return axios.get('shopPopu')
+}
+export function getShopPoEnt () {
+  return axios.get('shopPoEnt')
+}
+>>>>>>> dbfe15d4bc58934ec17ead2f486fd192bd64bee3
