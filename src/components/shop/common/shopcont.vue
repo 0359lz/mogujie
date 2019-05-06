@@ -131,8 +131,10 @@ export default {
     li{
       display: flex;
       flex-wrap: wrap;
+      flex-direction: column;
       width: calc(100% / 5);
       justify-content: center;
+      align-items: center;
       img{
         width: 100px;
         height: 100px;

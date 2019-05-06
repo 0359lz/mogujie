@@ -11,23 +11,20 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
+// 分类
 export function getCateList () {
   return axios.get('catelist')
 }
-
 export function getCate1 () {
   return axios.get('cate1')
 }
-
 export function getWall () {
   return axios.get('wall')
 }
-
 export function getCateDetail () {
   return axios.get('catedetail')
 }
 
-// 分类
 // 首页
 export function getCate () {
   return axios.get('cate')
@@ -53,4 +50,18 @@ export function getShopPopu () {
 }
 export function getShopPoEnt () {
   return axios.get('shopPoEnt')
+}
+export function getShopGress () {
+  return axios.get('shopYou')
+}
+
+// 直播
+export function getHot () {
+  return axios.get('hot')
+}
+export function getWear () {
+  return axios.get('wear')
+}
+export function getBeauty () {
+  return axios.get('beauty')
 }

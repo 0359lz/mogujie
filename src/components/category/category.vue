@@ -1,14 +1,14 @@
 <template>
 <div class="box">
   <!-- search -->
- <div v-show="isShow">
+ <div class="box1">
   <div class="cate" >
     <img class="pic1" src="@/assets/category/information.jpg" alt="">
      <div>
        <img class="pic2" src="@/assets/category/search.png" alt="">
        <input type="text" placeholder="阔腿裤">
      </div>
-    <router-link to="/category/bus"><img class="pic3" src="@/assets/category/shopcar.jpg" alt=""></router-link>
+    <img class="pic3" src="@/assets/category/shopcar.jpg" alt="" @click='backList'>
   </div>
   <!-- content -->
   <div class="content">
@@ -68,8 +68,7 @@ export default {
       timer: null,
       liHeight: 90,
       cate: [],
-      wall: null,
-      isShow: true
+      wall: null
     }
   },
   async created () {
@@ -86,15 +85,6 @@ export default {
     new BScroll('.wrapper')
   },
   // 监听路径
-  watch: {
-    $route (now, old) {
-      if (now.path !== '/category') {
-        this.isShow = false
-      } else if (now.path === '/category') {
-        this.isShow = true
-      }
-    }
-  },
   methods: {
     changeStatus (index) {
       this.activeList = index
@@ -115,6 +105,9 @@ export default {
         }
         this.$refs.lc.scrollTop = header
       }, 10)
+    },
+    backList () {
+      this.$router.push('/category/bus')
     }
   }
 }
@@ -126,6 +119,9 @@ export default {
     width: 100%;
     background: #fff;
     height:100%;
+  }
+  .box1{
+    height: calc(100% - 192px);
   }
   .cate{
        display: flex;
@@ -176,7 +172,7 @@ export default {
 //content样式
 .content{
     display: flex;
-    height: calc(100% - 192px);
+    height: 100%;
   }
 .l-content {
   float: left;

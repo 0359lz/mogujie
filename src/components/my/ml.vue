@@ -27,16 +27,21 @@ export default {
       height: 70px;
       border-bottom: 2px solid #ccc;
       background: rgb(235, 233, 233);
+      position: relative;
       img{
         display: inline-block;
         width: 40px;
         height: 40px;
-        margin-top: 10px;
+        margin-top: 12px;
+        margin-left: 10px;
       }
       span{
-        font-size: 26px;
+        font-size: 30px;
         display: inline-block;
-        margin-left: 300px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
         line-height: 70px;
       }
     }

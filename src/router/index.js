@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import live from '@/components/live/live.vue'
+import hot from '@/components/live/commponent/hot.vue'
+import wear from '@/components/live/commponent/wear.vue'
+import beauty from '@/components/live/commponent/beauty.vue'
 import bus from '@/components/category/bus.vue'
+import category from '@/components/category/category.vue'
 
 Vue.use(Router)
 
@@ -8,11 +13,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/home/find'
+    },
+    {
+      path: '/live',
+      redirect: '/live/hot'
     },
     {
       path: '/home',
       component: () => import('@/components/home/home.vue'),
+      redirect: '/home/find',
       meta: {
         catch: true
       },
@@ -40,20 +50,36 @@ export default new Router({
     },
     {
       path: '/live',
-      component: () => import('@/components/live/live.vue'),
+      component: live,
+      children: [
+        {
+          path: 'hot',
+          component: hot
+        },
+        {
+          path: 'wear',
+          component: wear
+        },
+        {
+          path: 'beauty',
+          component: beauty
+        }
+      ],
       meta: {
         catch: false
       }
     },
     {
       path: '/category',
-      component: () => import('@/components/category/category.vue'),
-      children: [
-        {
-          path: 'bus',
-          component: bus
-        }
-      ],
+      name: 'category',
+      component: category,
+      meta: {
+        catch: false
+      }
+    },
+    {
+      path: '/category/bus',
+      component: bus,
       meta: {
         catch: false
       }

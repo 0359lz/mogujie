@@ -114,6 +114,9 @@ export default {
       height: 152px;
       float: left;
       margin-left: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       button {
         border: none;
         background: none;
@@ -123,6 +126,7 @@ export default {
         display: inline-block;
         width: 80px;
         height: 80px;
+
       }
     }
   }
