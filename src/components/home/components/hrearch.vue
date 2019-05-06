@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-      <img src="../images/cate.png" alt="" class="left">
+      <img src="../images/cate.png" alt="" class="left" @click="goToCate">
       <div class="center">
         <img src="../images/search.png" alt="" class="cen">
         <input type="text" class="ipt" placeholder="背带裤">
@@ -8,7 +8,16 @@
       <img src="../images/ll.png" alt="" class="right">
   </div>
 </template>
-<style></style>
+<script>
+export default {
+  methods: {
+    goToCate () {
+      this.$router.push('/category')
+    }
+  }
+}
+</script>
+
 <style scoped lang="less">
 .home{
   display: flex;

@@ -27,7 +27,7 @@ div{
     background: #fff;
     margin-top: 20px;
     .poEnt{
-        width: 100%;
+        // width: 100%;
         height: 100px;
         font-size: 32px;
         font-weight: 700;

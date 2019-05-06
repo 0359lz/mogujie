@@ -10,11 +10,11 @@
             <ul>
                 <li>
                     <img src="./images/0.png">
-                    <span>访问你的详细资料 (必选)</span>
+                    <span class="qxSpan">访问你的详细资料 (必选)</span>
                 </li>
                 <li>
                     <img src="./images/0.png">
-                    <span>访问你的基础资料 (必选)</span>
+                    <span class="qxSpan">访问你的基础资料 (必选)</span>
                 </li>
                 <li class="qb">
                     <img src="./images/1.png">
@@ -38,7 +38,6 @@ export default {
         img{
             display: block;
             width: 168px;
-            height: 224px;
             margin: auto;
         }
         span{
@@ -57,21 +56,19 @@ export default {
             border-radius: 10px;
             border: none;
             outline: none;
-            margin-left: 40px;
-            margin-top: 40px;
+            display: block;
+            margin: 0 auto;
         }
     }
     .qx{
-        width: 680px;
+        width: 600px;
         height: 280px;
         margin: auto;
         margin-top: 40px;
         p{
             font-size: 28px;
-            margin-left: 40px;
         }
         ul{
-            margin-left: 40px;
             margin-top: 8px;
             height: 200px;
             border: 2px solid #ccc;
@@ -85,7 +82,7 @@ export default {
                     height: 20px;
                     padding-top: 20px;
                 }
-                span{
+                span.qxSpan{
                     display: inline-block;
                     font-size:20px;
                     color: #777;
@@ -95,6 +92,9 @@ export default {
             .qb{
                 height: 100px;
                 text-align: center;
+                // .span{
+                //     margin: 0;
+                // }
             }
         }
     }

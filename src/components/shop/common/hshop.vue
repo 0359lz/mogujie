@@ -2,7 +2,7 @@
     <div>
         <ul class="hshop">
             <li>
-                <img src="../img/categroy.jpg" alt="" class="hshopimg">
+                <img src="../img/categroy.jpg" alt="" class="hshopimg" @click="goToCate">
             </li>
             <li class="hshopLi">
                 <img src="../img/search.png" alt="">
@@ -16,6 +16,11 @@
 </template>
 <script>
 export default {
+  methods: {
+    goToCate () {
+      this.$router.push('/category')
+    }
+  }
 }
 </script>
 <style scoped lang="less">
