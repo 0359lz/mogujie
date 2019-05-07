@@ -24,6 +24,9 @@ export function getWall () {
 export function getCateDetail () {
   return axios.get('catedetail')
 }
+export function getListCont () {
+  return axios.get('listcont')
+}
 
 // 首页
 export function getCate () {

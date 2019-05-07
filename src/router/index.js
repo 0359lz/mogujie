@@ -78,6 +78,13 @@ export default new Router({
       }
     },
     {
+      path: '/category/list/:aid',
+      component: () => import('@/components/category/components/list.vue'),
+      meta: {
+        catch: false
+      }
+    },
+    {
       path: '/category/bus',
       component: bus,
       meta: {

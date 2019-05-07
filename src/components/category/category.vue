@@ -14,16 +14,18 @@
   <div class="content">
      <div class="l-content" ref="lc">
         <ul ref="ul">
-           <li class="c-ent" @click="changeStatus(index)" :class="{active: index==activeList}" v-for="(item, index) in cateList" :key="index"> <span></span>{{item.title}}</li>
+           <li class="c-ent" @click="changeStatus(index)" :class="{active: index == activeList}" v-for="(item, index) in cateList" :key="index"> <span></span>{{item.title}}</li>
         </ul>
      </div>
      <!-- banner -->
     <div class="r-content wrapper">
         <ul ref="ul">
-           <router-link class="b-con" to="category" tag="li" v-for="(item, index) in cate" :key="index">
+          <li class="b-con" v-for="(item, aid) in cate" :key="aid">
+            <router-link :to="'/category/list/' + cate.aid" >
              <img :src="item.img" alt="" class="c-img">
              <p>{{item.text}}</p>
-           </router-link>
+            </router-link>
+          </li>
         </ul>
         <!-- nav -->
         <div class="nav-content">
@@ -59,42 +61,41 @@
 <script>
 import BScroll from 'better-scroll'
 import {getCateList, getCate1, getWall} from '@/api'
-import { setInterval } from 'timers'
+import { setInterval, clearInterval } from 'timers'
 export default {
   data () {
     return {
       cateList: null,
       activeList: 0,
       timer: null,
-      liHeight: 90,
+      liHeight: 45,
       cate: [],
       wall: null
     }
   },
-  async created () {
+  async mounted () {
     this.cateList = await getCateList()
     this.cate = await getCate1()
     this.wall = await getWall()
     this.$nextTick(() => {
       var height = 45 * this.cateList.length
       this.$refs.ul.style.height = height + 'px'
-    })
 
-    // 增加滚动视图
-    /* eslint-disable no-new */
-    new BScroll('.wrapper')
+      // 增加滚动视图
+      /* eslint-disable no-new */
+      new BScroll('.wrapper')
+    })
   },
-  // 监听路径
   methods: {
     changeStatus (index) {
       this.activeList = index
+
       // 判断
-      if ((this.cateList.lenght * this.liHeight - this.$refs.lc.scrolltop) > this.$refs.lc.offsetHeight) {
+      if ((this.cateList.length * this.liHeight - this.$refs.lc.scrollTop) > this.$refs.lc.offsetHeight) {
 
       } else {
         return
       }
-
       var target = this.activeList * this.liHeight
       var header = 0
       clearInterval(this.timer)
@@ -104,7 +105,7 @@ export default {
           clearInterval(this.timer)
         }
         this.$refs.lc.scrollTop = header
-      }, 10)
+      }, 20)
     },
     backList () {
       this.$router.push('/category/bus')
@@ -121,7 +122,7 @@ export default {
     height:100%;
   }
   .box1{
-    height: calc(100% - 192px);
+    height: calc(100% - 100px);
   }
   .cate{
        display: flex;
@@ -177,7 +178,7 @@ export default {
 .l-content {
   float: left;
   width: 160px;
-  height: 100%;
+  height: calc(100% - 100px);
   overflow-y:auto;
   background: #f6f6f6;
   ul {

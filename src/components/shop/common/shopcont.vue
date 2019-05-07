@@ -54,7 +54,7 @@ export default {
     this.contList = await getCont()
     this.shopCate = await getShopcate()
     this.timer = setInterval(() => {
-      this.timeList = getLefTime('2019-4-30 17:50')
+      this.timeList = getLefTime('2019-5-10 17:50')
     }, 1000
     )
   },

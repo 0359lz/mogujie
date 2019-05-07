@@ -22,7 +22,7 @@ export default {
 .home{
   display: flex;
   width: 100%;
-  height:85px;
+  height:90px;
   justify-content: space-between;
   align-items: center;
   background: #fff;
@@ -38,15 +38,15 @@ export default {
      background: #e8ecf0;
      border-radius: 5px;
      width: 150px;
-     height:52px;
-     margin-left: 50px;
-     margin-right: 50px;
+     height:60px;
+     margin: 0 10px;
      .ipt{
       flex:1;
-      height: 40px;
+      height: 55px;
       background:#e8ecf0;
       margin-top: 4px;
       outline: none;
+      padding-left: 15px;
      }
     .cen{
      display: inline-block;

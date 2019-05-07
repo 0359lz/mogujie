@@ -29,7 +29,8 @@
       }
     }
   }
-  .router-link-exact-active{
+  .router-link-exact-active, .router-link-active{
     color: rgb(253, 71, 61);
   }
+
 </style>

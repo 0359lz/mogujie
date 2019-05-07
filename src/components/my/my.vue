@@ -59,7 +59,7 @@ export default {
   width: 600px;
   height: 284px;
   margin: auto;
-  margin-top: 200px;
+  padding-top: 200px;
   span.dl {
     display: block;
     font-size: 60px;

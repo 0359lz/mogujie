@@ -2,8 +2,10 @@
   <div class="hcate">
     <ul class="foot">
       <li v-for="(item,index) in hcateList" :key="index">
-      <img :src="item.img" alt="">
-      <p>{{item.title}}</p>
+        <router-link :to="'/category/list/' + item.aid">
+          <img :src="item.img" alt="">
+          <p>{{item.title}}</p>
+        </router-link>
       </li>
     </ul>
   </div>
