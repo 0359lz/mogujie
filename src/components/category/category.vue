@@ -14,19 +14,19 @@
   <div class="content">
      <div class="l-content" ref="lc">
         <ul ref="ul">
-           <li class="c-ent" @click="changeStatus(index)" :class="{active: index == activeList}" v-for="(item, index) in cateList" :key="index"> <span></span>{{item.title}}</li>
+           <li class="c-ent" ref="liHeight" @click="changeStatus(index)" :class="{active: index == activeList}" v-for="(item, index) in cateList" :key="index"> <span></span>{{item.title}}</li>
         </ul>
      </div>
      <!-- banner -->
-    <div class="r-content wrapper">
-        <ul ref="ul">
-          <li class="b-con" v-for="(item, aid) in cate" :key="aid">
+     <div class="r-content wrapper">
+        <ul ref="ul" v-for="(item, aid) in cate" :key="aid" v-show="currentIndex == aid">
+          <li class="b-con" v-for="(it, id) in item.cateCont" :key="id">
             <router-link :to="'/category/list/' + cate.aid" >
-             <img :src="item.img" alt="" class="c-img">
-             <p>{{item.text}}</p>
+             <img :src="it.img" alt="" class="c-img">
+             <p>{{it.text}}</p>
             </router-link>
           </li>
-        </ul>
+          <li class="li">
         <!-- nav -->
         <div class="nav-content">
            <div class="tab-items">
@@ -50,7 +50,10 @@
             </div>
           </li>
         </ul>
-      </div>
+       </div>
+      </li>
+    </ul>
+
     </div>
   </div>
  </div>
@@ -66,29 +69,37 @@ export default {
   data () {
     return {
       cateList: null,
-      activeList: 0,
+      // activeList: 0,
       timer: null,
       liHeight: 45,
       cate: [],
-      wall: null
+      wall: null,
+      bscroll: null
     }
   },
   async mounted () {
     this.cateList = await getCateList()
     this.cate = await getCate1()
     this.wall = await getWall()
+    this.bscroll = new BScroll('.wrapper', {
+      observeDOM: true
+    })
     this.$nextTick(() => {
-      var height = 45 * this.cateList.length
-      this.$refs.ul.style.height = height + 'px'
+      // var height = 45 * this.cateList.length
+      // this.$refs.ul.style.height = height + 'px'
 
       // 增加滚动视图
       /* eslint-disable no-new */
-      new BScroll('.wrapper')
+      this.bscroll.refresh()
     })
   },
   methods: {
     changeStatus (index) {
-      this.activeList = index
+      // this.activeList = index
+      // vuex 创建一个仓库
+      this.$store.state.currentIndex = index
+      // 找到li的高，动态调整scrollTop距离
+      this.liHeight = this.$refs.liHeight[0].offsetHeight
 
       // 判断
       if ((this.cateList.length * this.liHeight - this.$refs.lc.scrollTop) > this.$refs.lc.offsetHeight) {
@@ -96,7 +107,7 @@ export default {
       } else {
         return
       }
-      var target = this.activeList * this.liHeight
+      var target = index * this.liHeight
       var header = 0
       clearInterval(this.timer)
       this.timer = setInterval(() => {
@@ -104,11 +115,19 @@ export default {
         if (header > target - 1) {
           clearInterval(this.timer)
         }
-        this.$refs.lc.scrollTop = header
+        this.$refs.lc.scrollTop = header + 1
       }, 20)
     },
     backList () {
       this.$router.push('/category/bus')
+    }
+  },
+  computed: {
+    currentIndex () {
+      return this.$store.state.currentIndex
+    },
+    activeList () {
+      return this.$store.state.currentIndex
     }
   }
 }
@@ -217,8 +236,11 @@ export default {
    display:flex;
    flex-wrap:wrap;
    width:100%;
+   .li{
+     width: 100%;
+   }
    li{
-   width:calc(100% / 3);
+    width:calc(100% / 3);
     .c-img{
      width:70%;
      margin: 20px 22px;

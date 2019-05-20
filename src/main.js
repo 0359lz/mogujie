@@ -11,6 +11,8 @@ import 'swiper/dist/css/swiper.css'
 // import FastClick from 'fastclick' // 300ms延迟
 // FastClick.attach(document.bbody)
 
+import store from '@/store/'
+
 Vue.use(VueAwesomeSwiper /* { default global options } */) // 执行插件里面的安装方法
 Vue.use(VueLazyload, {
   preLoad: 1.3,
@@ -34,5 +36,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })
